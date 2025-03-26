@@ -1,4 +1,33 @@
 <h1>Hello Angular , Lets learn </h1>
 
 <h2>{{title}}</h2>
+
+<!-- outputs 4 -->
+<h2>{{2+2}}</h2> 
+
+<!-- outputs 2+2 -->
+<h2>2+2</h2> 
+
+<!-- outputs properties from ts file -->
 <h2>{{namefromappcomponent}}</h2>
+
+<!-- cannot decalre variable, incremtn or decrement operator , no for loop, -->
+<h2>{{x==y}}</h2>
+ 
+<hr>
+<h1>What is Components</h1>
+<app-login></app-login>
+<app-signup></app-signup>
+
+
+<button (click) = "myFunction()">Call my Function</button>
+<h3>{{mufunctionvar}}</h3>
+<hr>
+<h1>Counter Application</h1>
+
+<div>
+    <h2>{{counterStarttingValue}}</h2>
+    <button (click) = "decrementCounter()">Decrement</button>
+    <button (click) = "resetCounter()">Reset</button>
+    <button (click) = "incrementCounter()">Increment</button>
+</div>
