@@ -31,3 +31,21 @@
     <button (click) = "resetCounter()">Reset</button>
     <button (click) = "incrementCounter()">Increment</button>
 </div>
+
+
+<hr>
+<h1>get and set input value with function call {{myFinalName}}</h1>
+
+<h2>Your get or set value is this</h2>
+<input type = "text" value = "{{myName}}" (input) = "showName($event)"> 
+<br>
+<button (click) = "getName()" > Get Name</button>
+<br>
+<button (click) = "setName()"> Set default Name</button>
+
+<hr>
+<h1>get and set input value with reference variable {{email}}</h1>
+<input type = "text" value = "{{email}}" #emailField>
+<button (click) ="getEmail(emailField.value)">Get Email</button>
+<button (click) ="setEmail()">Set default Email</button>
+

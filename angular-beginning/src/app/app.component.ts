@@ -5,7 +5,7 @@ import { SignupComponent } from './signup/signup.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, LoginComponent, SignupComponent],
+  imports: [ LoginComponent, SignupComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -17,6 +17,9 @@ export class AppComponent {
   namefromappcomponent = 'properties from angular ts file';
   mufunctionvar: string = "";
   counterStarttingValue:number = 0;
+  myName:string= "";
+  myFinalName:string= "";
+  email:string="";
   myFunction(){
     this.mufunctionvar = "my function is called";
   }
@@ -34,5 +37,21 @@ export class AppComponent {
     this.counterStarttingValue++;
   }
 
+  getName(){
+    this.myFinalName = this.myName;
+  }
+  showName(event:Event){
+    this.myName = (event.target as HTMLInputElement).value;
+  }
+  setName(){
+    this.myName = "Afifi";
+  }
+
+  getEmail(val:string){
+    this.email = val;
+  }
+  setEmail(){
+    this.email = "Afifi@gmail.com";
+  }
 
 }
