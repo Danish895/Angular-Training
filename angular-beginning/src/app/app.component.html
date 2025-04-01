@@ -1,11 +1,90 @@
+<h1> Routing in angular</h1>
+<ul>
+    <li>
+        <a routerLink = "/login" >Login Page</a>
+    </li>
+    <li>
+        <a routerLink = "/signup"> Sign Up</a>
+    </li>
+</ul>
+
+<router-outlet></router-outlet>
+
+<hr>
+<h1>Directives</h1>
+<h2>ngFor</h2>
+<ul>
+    <li *ngFor="let sss of users" > {{sss}}</li>
+</ul>
+
+<hr>
+
+<h1>To Do List</h1>
+<input [(ngModel)] = "task" type ="text" placeholder="Enter your task">
+<button (click) = "addTask()">Add Task</button>
+@for(task of taskList; track task.id)
+{
+    <ul>
+        <li> {{task.task}}</li>
+        <li><button (click) = "deleteTask(task.id)">Delete Task</button></li>
+    </ul>
+}
+
+<hr>
+<h1>Two way binding</h1>
+<h2>using ngmodel</h2>
+<input [(ngModel)] = "myTwoWayBindingVariable" type ="text" placeholder="enter for two way binding">
+<h3>Your two way binding value is {{myTwoWayBindingVariable}}</h3>
+
+
+<h2>using function</h2>
+<input (input) = "nameChange($event)" type ="text" placeholder="enter for two way binding">
+<h3>Your two way binding value is {{myTwoWayBindingVariable2}}</h3>
+
+
+<hr>
+<h1>Signals</h1>
+<h2>Writable Signal</h2>
+<h3>Signal value is  : {{count()}}</h3>
+<h3>Signal testing</h3>
+<button (click) = "updateSignalValue()">Update signal value will invoke Constructor</button>
+
+<h2>Computable Signal</h2>
+<button (click) = "updatedOnChangesNormally()">Normal value change</button>
+<h3>Normal Z value on input change {{normalZ}}</h3>
+<button (click) = "updatedOnChangesSignal()">Signal value change</button>
+<h3>Computed Z value change on input computed value change {{computedZ()}}</h3>
+
+<hr>
+<h1> for loop with for item of items </h1>
+@for(user of users; track user){
+    @if($last){
+        <h4 style = "background-color :red">{{user}}</h4>
+    }@else{
+        <h4>{{user}}</h4>
+    }
+}
+
+<hr>
+<h1>if else condition</h1>
+
+
+<button (click)="toggleifelse()">
+    {{ toggleelseifboolean ? 'Show Red' : 'Show Green' }}
+</button>
+   
+@if(toggleelseifboolean){
+    <div>this is red</div>
+}
+@else{
+ <div>this is green</div>
+}
+
+<hr>
 <h1>Css Styling types</h1>
 <h3 style = "color :green"> In Line</h3>
 <div class="classForStyleFile">This is class from css file</div>
 <div class="classForInternalCss"> This is div of internal css file</div>
-
-
-
-
 
 <hr>
 <h1>Hello Angular , Lets learn </h1>
@@ -65,3 +144,6 @@
         background-color: red;
     }
 </style>
+
+
+
