@@ -1,14 +1,27 @@
+<h1> Pass data from One page to Other</h1>
+<h2>Router Link</h2>
+<a [routerLink] = "['profile', {name : 'Afifa'}]"> Go to Profile</a>
+
+
+<h2>Button Click</h2>
+
+<button (click) = "goToProfile()"> Button for passing data</button>
+
+<h2>From Router file</h2>
+
+
+<router-outlet></router-outlet>
+<hr>
 <h1> Routing in angular</h1>
 <ul>
     <li>
         <a routerLink = "/login" >Login Page</a>
     </li>
     <li>
-        <a routerLink = "/signup"> Sign Up</a>
+        <a routerLink = "/signup">Sign Up</a>
     </li>
 </ul>
 
-<router-outlet></router-outlet>
 
 <hr>
 <h1>Directives</h1>
@@ -141,7 +154,7 @@
 <hr>
 <style>
     .classForInternalCss{
-        background-color: red;
+        background-color: yellow;
     }
 </style>
 

@@ -1,14 +1,15 @@
 import { Component, computed, effect, WritableSignal } from '@angular/core';
-import { RouterOutlet, RouterLink } from '@angular/router';
+import { RouterOutlet, RouterLink, Router } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component'; 
 import { signal,Signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgFor } from '@angular/common';
+import { ProfileComponent } from './profile/profile.component';
 
 @Component({
   selector: 'app-root',
-  imports: [ LoginComponent, SignupComponent, FormsModule, NgFor, RouterOutlet, RouterLink],
+  imports: [ LoginComponent, SignupComponent, FormsModule, NgFor, RouterOutlet, RouterLink, ProfileComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -42,18 +43,24 @@ export class AppComponent {
   task:string = ""
   taskList: {id:number , task:string }[] = [];
 
-  constructor() {
+  constructor(private route : Router) {
     effect(() =>{
       console.log(this.count());
     })
   }
-
+   
+  goToProfile(){
+    this.route.navigate(['profile'], {queryParams : {name : 'Afifia'}})
+  }
+  
   deleteTask(taskid: number){
     this.taskList = this.taskList.filter(item => item.id != taskid);
 
   }
   addTask(){
+    if(this.task != ""){
     this.taskList.push({id: this.taskList.length + 1, task : this.task})
+    }
   }
   nameChange(event:Event){
     this.myTwoWayBindingVariable2 = (event.target as HTMLInputElement).value;
